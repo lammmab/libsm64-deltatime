@@ -27,6 +27,7 @@
 #include "decomp/mario/geo.inc.h"
 #include "decomp/game/platform_displacement.h"
 #include "decomp/game/sound_init.h"
+#include "decomp/game/deltatime.h"
 
 #include "debug_print.h"
 #include "load_surfaces.h"
@@ -717,4 +718,8 @@ SM64_LIB_FN void sm64_play_sound_global(int32_t soundBits)
 SM64_LIB_FN void sm64_set_sound_volume(float vol)
 {
     gAudioVolume = vol;
+}
+
+SM64_LIB_FN void sm64_set_dt(float dt) {
+    set_dt(dt);
 }
