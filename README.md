@@ -1,26 +1,15 @@
-# libsm64 - Super Mario 64 as a library
+# libsm64-deltatime - Super Mario 64 as a library, forked with deltatime
 
-The purpose of this project is to provide a clean interface to the movement and rendering
-code which was reversed from SM64 by the [SM64 decompilation project](https://github.com/n64decomp/sm64),
-so that Mario can be dropped in to existing game engines or other systems with minimal effort.
-This project produces a shared library file containing mostly code from the decompilation project,
-and loads an official SM64 ROM at runtime to get Mario's texture and animation data, so any project
-which makes use of this library must ask the user to provide a ROM for asset extraction.
+This repo adds a global delta time setter and getter, integrated throughout the original SM64 decompilation code. This allows smooth movement and animation regardless of framerate, simplifying time-based calculations. With bindings, it can replace interpolation, making game behavior consistent and easy to manage across different platforms and refresh rates.
 
-The entire external-facing API of the shared library can be found in `libsm64.h`. Any client project
-making use of the library must only include that header and load the library. There's a minimal example
-project under the `test` directory as well, demonstrating usage of the library.
+## USAGE:
+
+* Use the exact same as you would libsm64, but call sm64_set_dt(YourDeltaTimeFloat)
+* If you would like to use libsm64 as normal, just don't call the sm64_set_dt function and it will operate the same as usual
 
 ## Bindings and plugins
 
-- [Rust bindings](https://github.com/nickmass/libsm64-rust)
-- [Odin bindings](https://github.com/lammmab/libsm64-odin)
-- [Unity plugin](https://github.com/libsm64/libsm64-unity)
-- [Blender add-on](https://github.com/libsm64/libsm64-blender)
-- [Godot add-on](https://github.com/Brawmario/libsm64-godot)
-- [Game Maker 8 extension](https://github.com/headshot2017/libsm64-gm8)
-- [Unity MelonLoader mod](https://github.com/headshot2017/libsm64-unity-melonloader)
-- [Unity BepInEx plugin](https://github.com/sashaantipov2012/libsm64-unity-bepinex)
+- Find bindings on the [base repo](https://github.com/libsm64/libsm64/)
 
 ## Building on Mac and Linux
 
